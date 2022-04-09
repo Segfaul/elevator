@@ -3,12 +3,18 @@ from PIL import ImageTk, Image
 path = '' #closed_elev
 path2 = '' #open elev
 c = []; x = 245; y = 200
+
+
 def Well(btn):
     c.append(btn.cget('text')); array.config(text=('Текущая очередь:\n' + ' '.join(c)))
     win.update()
+    
+    
 def Lesss_go():
     # print(placement.cget('text').split()[-2]) / just check if something doesn't work or work incorrectly
     Move(list(set(c)))
+    
+    
 def Move(floors):
     panel.config(image=img)
     floors.sort()
@@ -51,6 +57,8 @@ def Move(floors):
         array.config(text=("Стоим..."))
     panel.config(image=img2)
     kef.config(text=str(f))
+    
+    
 win = tk.Tk()
 win.title('Elevator on python')
 ph = tk.PhotoImage(file='') #closed elev
@@ -74,4 +82,5 @@ array = tk.Label(win, text=('Текущая очередь:\n' + ' '.join(c)), f
 kef = tk.Button(win, text='245')
 welc = tk.Label(win, text='''Warn Elevator''', width = 50, font='20')
 welc.pack(pady=(10, 0))
+
 win.mainloop()
